@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HWCA - Financial Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="user-profile">
+        <div class="avatar-icon">👤</div>
+        <p id="userNameDisplay">User Profile</p>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active">🏠 <span>Home</span></a>
+        <a href="#" class="nav-item" onclick="openModal('memberListModal')">👤+ <span>Add Member</span></a>
+        <a href="#" class="nav-item">📊 <span>Report</span></a>
+        <a href="#" class="nav-item">⚙️ <span>Settings</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="close-btn" onclick="logout()">&lt;&lt; Logout</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- HEADER WITH LOGO PLACEHOLDER -->
+      <header class="header">
+        <div class="logo-container">
+          <!-- 🟢 REPLACE 'logo-placeholder.png' WITH YOUR ACTUAL LOGO FILE -->
+          <img src="logo-placeholder.png" alt="HWCA Logo" class="hwca-logo">
+          <h1 class="header-title">HWCA</h1>
+        </div>
+      </header>
+
+      <!-- ANALYTICS PREVIEW SECTION -->
+      <section class="analytics-row">
+        <div class="chart-box">
+          <h3>Funds Overview</h3>
+          <canvas id="fundsChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Contribution Trends</h3>
+          <canvas id="contributionChart"></canvas>
+        </div>
+      </section>
+
+      <!-- DASHBOARD CARDS GRID -->
+      <section class="dashboard-grid">
+        <div class="card" onclick="openModal('memberListModal')">
+          <div class="card-icon">👥</div>
+          <h4>Member</h4>
+        </div>
+
+        <div class="card" onclick="openModal('paymentModal')">
+          <div class="card-icon">💵</div>
+          <h4>Payments</h4>
+        </div>
+
+        <div class="card" onclick="openModal('fundsModal')">
+          <div class="card-icon">📥</div>
+          <h4>Contribution</h4>
+        </div>
+
+        <div class="card" onclick="openModal('fundsModal')">
+          <div class="card-icon">💰</div>
+          <h4>Funds</h4>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODALS -->
+  <div id="memberListModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Member</h3>
+        <span class="close-modal" onclick="closeModal('memberListModal')">&times;</span>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Names</th></tr></thead>
+          <tbody>
+            <tr onclick="selectMember('Asbes, Marian')"><td>Asbes, Marian</td></tr>
+            <tr onclick="selectMember('Baliwag, Lorenza')"><td>Baliwag, Lorenza</td></tr>
+            <tr onclick="selectMember('Capinpin, Yolanda')"><td>Capinpin, Yolanda</td></tr>
+            <tr onclick="selectMember('Dabeg, Rodalym')"><td>Dabeg, Rodalym</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="memberActionModal" class="modal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3 id="selectedMemberName">Member Actions</h3>
+        <div>
+          <button class="action-btn">Update</button>
+          <span class="close-modal" onclick="closeModal('memberActionModal')">&times;</span>
+        </div>
+      </div>
+      <div class="action-grid">
+        <div class="action-card" onclick="alert('Viewing Personal Info')">
+          <div class="action-icon">👤</div>
+          <p>Personal Info</p>
+        </div>
+        <div class="action-card" onclick="alert('Loan Application Form')">
+          <div class="action-icon">💰</div>
+          <p>Loan Application</p>
+        </div>
+        <div class="action-card" onclick="alert('Loan Payment Form')">
+          <div class="action-icon">🤲💵</div>
+          <p>Loan Payment</p>
+        </div>
+        <div class="action-card" onclick="alert('Share Capital Breakdown')">
+          <div class="action-icon">📉</div>
+          <p>Share Capital</p>
+        </div>
+        <div class="action-card" onclick="alert('Contribution Payment Form')">
+          <div class="action-icon">📥</div>
+          <p>Contribution Payment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="paymentModal" class="modal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3>Payment</h3>
+        <span class="close-modal" onclick="closeModal('paymentModal')">&times;</span>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr><th>Names</th><th>Loan</th><th>Contribution</th><th>Total</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Asbes, Marian</td><td>500.00</td><td>0.00</td><td>500.00</td><td class="status-unpaid">Unpaid</td></tr>
+            <tr><td>Baliwag, Lorenza</td><td>280.00</td><td>100.00</td><td>380.00</td><td class="status-paid">Paid</td></tr>
+            <tr><td>Capinpin, Yolanda</td><td>0.00</td><td>100.00</td><td>100.00</td><td class="status-unpaid">Unpaid</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="fundsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Association Funds</h3>
+        <span class="close-modal" onclick="closeModal('fundsModal')">&times;</span>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Date</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>January 05, 2024</td><td>60,000.00</td></tr>
+            <tr><td>June 03, 2024</td><td>60,000.00</td></tr>
+            <tr><td>December 08, 2024</td><td>70,000.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

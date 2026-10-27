@@ -1,0 +1,55 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { background-color: #f0f2f5; color: #333; }
+
+/* Authentication Screen */
+.auth-body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #d9d9d9; }
+.auth-card { background: white; padding: 30px; border-radius: 8px; border: 2px solid #555; width: 380px; text-align: center; }
+.auth-form { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+.auth-form input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+.auth-btn { padding: 10px; background: #6c6c6c; color: white; border: none; cursor: pointer; border-radius: 4px; font-weight: bold; }
+.auth-btn:hover { background: #555; }
+.auth-msg { margin-top: 10px; font-size: 14px; font-weight: bold; }
+
+/* Dashboard Layout */
+.app-container { display: flex; height: 100vh; }
+.sidebar { width: 240px; background-color: #8a8a8a; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 10px; border-right: 2px solid #555; }
+.user-profile { text-align: center; margin-bottom: 20px; }
+.avatar-icon { font-size: 50px; margin-bottom: 5px; }
+.nav-menu { display: flex; flex-direction: column; gap: 15px; }
+.nav-item { color: white; text-decoration: none; font-size: 16px; padding: 10px; border-radius: 4px; display: flex; align-items: center; gap: 10px; }
+.nav-item:hover, .nav-item.active { background-color: #6c6c6c; }
+.sidebar-footer .close-btn { width: 100%; padding: 10px; background-color: #6c6c6c; color: white; border: 1px solid #444; cursor: pointer; }
+
+.main-content { flex: 1; display: flex; flex-direction: column; background-color: #d9d9d9; }
+.header { background-color: #bebebe; padding: 15px; border-bottom: 2px solid #666; text-align: center; }
+.logo-container { display: flex; align-items: center; justify-content: center; gap: 15px; }
+.hwca-logo { height: 50px; width: auto; background-color: #eee; border: 1px dashed #666; border-radius: 4px; }
+.header-title { font-size: 48px; font-family: 'Impact', 'Arial Black', sans-serif; letter-spacing: 2px; }
+
+.analytics-row { display: flex; gap: 20px; padding: 15px; justify-content: center; }
+.chart-box { background: white; padding: 10px; border: 1px solid #999; width: 45%; height: 140px; text-align: center; }
+.chart-box canvas { max-height: 100px; }
+
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px 40px; }
+.card { background-color: #e6e6e6; border: 2px solid #333; padding: 25px; text-align: center; cursor: pointer; }
+.card:hover { background-color: #cccccc; }
+.card-icon { font-size: 40px; margin-bottom: 10px; }
+
+/* Modals & Tables */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; }
+.modal-content { background-color: white; width: 450px; border: 2px solid #000; }
+.modal-lg { width: 650px; }
+.modal-header { background-color: #6c6c6c; color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; }
+.close-modal { font-size: 24px; cursor: pointer; color: #ff4d4d; font-weight: bold; }
+.table-container { max-height: 300px; overflow-y: auto; }
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th, .data-table td { border: 1px solid #777; padding: 8px 12px; text-align: left; }
+.data-table th { background-color: #8a8a8a; color: white; }
+.data-table tbody tr:hover { background-color: #e2e2e2; cursor: pointer; }
+.status-paid { color: green; font-weight: bold; }
+.status-unpaid { color: red; font-weight: bold; }
+.action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
+.action-card { border: 1px solid #333; padding: 15px; text-align: center; cursor: pointer; }
+.action-card:hover { background-color: #f0f0f0; }
+.action-icon { font-size: 30px; margin-bottom: 5px; }
+.action-btn { padding: 4px 12px; background-color: white; border: 1px solid #333; cursor: pointer; }
